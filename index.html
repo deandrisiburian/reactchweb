@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>ReactCH Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-zinc-900 to-black text-white flex items-center justify-center p-4">
+  <div class="w-full max-w-md bg-zinc-900/80 backdrop-blur rounded-2xl shadow-xl p-6 space-y-6">
+
+    <div class="text-center">
+      <h1 class="text-2xl font-bold">ReactCH Web</h1>
+      <p class="text-sm text-zinc-400">API Key sudah tersimpan</p>
+    </div>
+
+    <input id="link" type="text" placeholder="Masukkan link postingan" class="w-full p-3 rounded-xl bg-zinc-800 border border-zinc-700 focus:outline-none" />
+
+    <input id="emoji" type="text" placeholder="Masukkan emoji (pisahkan dengan spasi)" class="w-full p-3 rounded-xl bg-zinc-800 border border-zinc-700 focus:outline-none" />
+
+    <div class="text-xs text-zinc-500 bg-zinc-800/50 p-2 rounded-lg">
+      <p>🔐 API Key: <span class="text-green-400 font-mono">25b80...215d</span> (tetap)</p>
+    </div>
+
+    <button onclick="sendReact()" class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:opacity-90 transition">Kirim React</button>
+
+    <pre id="result" class="hidden bg-zinc-950 p-4 rounded-xl text-sm border border-zinc-700 whitespace-pre-wrap"></pre>
+
+  </div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
