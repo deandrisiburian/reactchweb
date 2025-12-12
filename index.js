@@ -1,4 +1,4 @@
-const API_KEY = "eyJhbGciOiJIUzI1NilsInR5cCI6IkpXVCJ9. eyJpZCI6IjY5MzgyZDFhMTE0YWI3MTE5Z mNhNTdjZilslmlhdCI6MTc2NTI4OTI0Miwi ZXhwljoxNzY1ODk0MDQyfQ.PyblreikWf2_ fcPwRfrM_w-_VZmSlvk1vQtrrOuNFBo";
+const API_KEY = "25b80be532d4a92e5d272b5d99fec6c7768eee3636cd4b7d812b0f47ddf0215d. eyJpZCI6IjY5MzgyZDFhMTE0YWI3MTE5Z mNhNTdjZilslmlhdCI6MTc2NTI4OTI0Miwi ZXhwljoxNzY1ODk0MDQyfQ.PyblreikWf2_ fcPwRfrM_w-_VZmSlvk1vQtrrOuNFBo";
 
 async function sendReact() {
   const link = document.getElementById("link").value.trim();
