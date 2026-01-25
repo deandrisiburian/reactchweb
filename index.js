@@ -19,7 +19,7 @@ async function sendReact() {
     const res = await fetch(url, {
       method: "GET",
       headers: { 
-        "x-api-key": '25b80be532d4a92e5d272b5d99fec6c7768eee3636cd4b7d812b0f47ddf0215d',
+        "x-api-key": "25b80be532d4a92e5d272b5d99fec6c7768eee3636cd4b7d812b0f47ddf0215d",
         "Content-Type": "application/json"
       }
     });
