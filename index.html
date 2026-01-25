@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Channel React</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>">
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <div class="flex justify-center items-center gap-3 mb-4">
+                <i class="fab fa-whatsapp text-4xl text-green-500"></i>
+                <h1 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+                    WhatsApp Channel React
+                </h1>
+            </div>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Kirim reaksi emoji ke channel WhatsApp dengan mudah. Masukkan link channel dan pilih emoji yang ingin dikirim.
+            </p>
+        </header>
+
+        <!-- Main Card -->
+        <main class="bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-2xl p-6 md:p-8 shadow-2xl">
+            <!-- Input Section -->
+            <div class="space-y-6">
+                <!-- Link Input -->
+                <div>
+                    <label for="link" class="block mb-2 font-medium text-gray-300">
+                        <i class="fas fa-link mr-2 text-blue-400"></i>
+                        Link Channel WhatsApp
+                    </label>
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="link" 
+                            placeholder="https://whatsapp.com/channel/XXXXXXXXXXXXXX" 
+                            class="w-full px-4 py-3 pl-12 bg-gray-900 border-2 border-gray-700 rounded-xl focus:border-green-500 focus:ring-2 focus:ring-green-500/30 outline-none transition-all"
+                        >
+                        <i class="fas fa-hashtag absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">
+                        Salin link channel WhatsApp dari aplikasi WhatsApp
+                    </p>
+                </div>
+
+                <!-- Emoji Input -->
+                <div>
+                    <label for="emoji" class="block mb-2 font-medium text-gray-300">
+                        <i class="fas fa-smile mr-2 text-yellow-400"></i>
+                        Emoji Reaksi
+                    </label>
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="emoji" 
+                            placeholder="😀 😍 👍 🎉 💯" 
+                            class="w-full px-4 py-3 pl-12 bg-gray-900 border-2 border-gray-700 rounded-xl focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500/30 outline-none transition-all text-2xl"
+                        >
+                        <i class="fas fa-icons absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">
+                        Pisahkan multiple emoji dengan spasi (contoh: 😀 😍 👍)
+                    </p>
+                </div>
+
+                <!-- Quick Emoji Buttons -->
+                <div>
+                    <p class="block mb-2 font-medium text-gray-300">
+                        <i class="fas fa-bolt mr-2 text-purple-400"></i>
+                        Emoji Cepat
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="addEmoji('👍')" class="emoji-btn bg-gray-800 hover:bg-gray-700">👍</button>
+                        <button onclick="addEmoji('❤️')" class="emoji-btn bg-gray-800 hover:bg-gray-700">❤️</button>
+                        <button onclick="addEmoji('😂')" class="emoji-btn bg-gray-800 hover:bg-gray-700">😂</button>
+                        <button onclick="addEmoji('😮')" class="emoji-btn bg-gray-800 hover:bg-gray-700">😮</button>
+                        <button onclick="addEmoji('😢')" class="emoji-btn bg-gray-800 hover:bg-gray-700">😢</button>
+                        <button onclick="addEmoji('🎉')" class="emoji-btn bg-gray-800 hover:bg-gray-700">🎉</button>
+                        <button onclick="addEmoji('💯')" class="emoji-btn bg-gray-800 hover:bg-gray-700">💯</button>
+                        <button onclick="addEmoji('🔥')" class="emoji-btn bg-gray-800 hover:bg-gray-700">🔥</button>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button 
+                    onclick="sendReact()" 
+                    id="submitBtn"
+                    class="w-full py-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 rounded-xl font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-green-500/20 flex items-center justify-center gap-3"
+                >
+                    <i class="fas fa-paper-plane"></i>
+                    Kirim Reaksi
+                </button>
+
+                <!-- Info -->
+                <div class="bg-blue-900/20 border border-blue-800/50 rounded-xl p-4">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-info-circle text-blue-400 mt-1"></i>
+                        <div>
+                            <h3 class="font-medium text-blue-300 mb-1">Informasi Penting</h3>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Pastikan link channel WhatsApp valid</li>
+                                <li>• Gunakan emoji yang didukung WhatsApp</li>
+                                <li>• Reaksi akan dikirim secara otomatis</li>
+                                <li>• Hasil akan muncul dalam 5-10 detik</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Box -->
+            <div id="result" class="hidden mt-6 p-4 rounded-xl text-sm whitespace-pre-wrap transition-all duration-300"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-10 text-center text-gray-500 text-sm">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>API Key aman dan terenkripsi</span>
+                </div>
+                <div class="hidden md:block">•</div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-bolt"></i>
+                    <span>Proses cepat dan realtime</span>
+                </div>
+                <div class="hidden md:block">•</div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-code"></i>
+                    <span>Developed with ❤️</span>
+                </div>
+            </div>
+            <p class="mt-4">Tekan <kbd class="px-2 py-1 bg-gray-800 rounded">Enter</kbd> untuk mengirim reaksi</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading" class="fixed inset-0 bg-gray-900/90 backdrop-blur-sm hidden items-center justify-center z-50">
+        <div class="text-center">
+            <div class="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="text-xl font-medium">Mengirim reaksi...</p>
+            <p class="text-gray-400 mt-2">Harap tunggu sebentar</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
